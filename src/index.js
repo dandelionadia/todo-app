@@ -1,12 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import './style.scss';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class App extends React.Component {
+    render() {
+        return (
+            <div className="wrapper">
+                <div className="container">
+                    <h2>Title</h2>
+                    <div className="input__wrapper">
+                        <input className="input" name="task" placeholder="Add a task..." />
+                        <i className="fas fa-align-left input__icon"></i>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+    <App />,
+    document.getElementById('root')
+);

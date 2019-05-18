@@ -1,10 +1,11 @@
 import React from 'react';
+import { MdFormatAlignLeft } from 'react-icons/md';
 
 function Input() {
     return (
         <div className="input__wrapper">
             <input className="input" name="task" placeholder="Add a task..." />
-            <i className="fas fa-align-left input__icon"></i>
+            <MdFormatAlignLeft className="input__icon" fill="#ffffff4d" />
         </div>
     )
 }

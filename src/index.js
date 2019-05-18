@@ -12,7 +12,8 @@ class App extends React.Component {
                 <div className="container">
                     <h2>Title</h2>
                     <Input />
-                    <Task />
+                    <Task label="dodo" hint="hint" />
+                    <Task label="text" isPinned={true} />
                 </div>
             </div>
         )

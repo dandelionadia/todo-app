@@ -8,7 +8,7 @@ function Task(props) {
     return (
         <div className="task">
             {props.isPinned && <GiPin className="task__pin" />}
-            <Checkbox name="checkbox" className="task__input" label={props.label} hint={props.hint} />
+            <Checkbox name={props.id} className="task__input" label={props.label} hint={props.hint} />
             <MdMoreHoriz fill="#ffffff4d" size="25px" />
         </div>
     )

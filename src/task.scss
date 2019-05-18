@@ -11,6 +11,13 @@
     &__icon {
         color: $color-gray;
     }
+
+    &__pin {
+        fill: #E45C89;
+        position: absolute;
+        margin-left: -20px;
+        transform: rotate(0.8turn);
+    }
 }
 
 input[type="checkbox"] {

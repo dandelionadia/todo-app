@@ -4,7 +4,10 @@ const Checkbox = (props) => {
     return (
         <div className={props.className}>
             <input id={props.name} type="checkbox" name={props.name} />
-            <label for={props.name}>{props.label}</label>
+            <label for={props.name}>
+                {props.label}
+                <p className="checkbox__hint">{props.hint}</p>
+            </label>
         </div>
     )
 }

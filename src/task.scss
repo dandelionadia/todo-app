@@ -14,32 +14,39 @@
 }
 
 input[type="checkbox"] {
-    display: none;
+    height: 0;
+    width: 0;
+    margin-right: 28px;
+
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-color: $color-light-blue;
+        border: 1px solid $color-dark-blue;
+        border-radius: 2px;
+        margin-left: -3px;
+    }
 
     & + label {
         color: $color-white;
         position: relative;
-        padding-left: 10px;
         cursor: pointer;
-    
-        &::before {
-            content: "";
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            background-color: $color-light-blue;
-            border: 1.5px solid $color-light-black;
-            vertical-align: middle;
-            margin-left: -10px;
-            margin-right: 10px;
-          }
+        text-align: start;
+        font-weight: 600;
     }
     
-    &:checked + label::before {
+    &:checked::before {
         content: '';
         background-image:  url('./image/iconmonstr-check-mark-1.png');
         background-size: 75%;
         background-repeat: no-repeat;
         background-position: center;
     }
+}
+
+.checkbox__hint {
+    color:  $color-gray;
+    margin: 5px 0;
 }

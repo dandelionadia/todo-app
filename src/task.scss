@@ -1,0 +1,52 @@
+.task {
+    display: flex;
+    margin: 20px 0;
+
+    &__input {
+        display: flex;
+        flex-shrink: 1;
+        width: 100%;
+    }
+
+    &__icon {
+        color: $color-gray;
+    }
+}
+
+input[type="checkbox"] {
+    height: 0;
+    width: 0;
+    margin-right: 28px;
+
+    &::before {
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-color: $color-light-blue;
+        border: 1px solid $color-dark-blue;
+        border-radius: 2px;
+        margin-left: -3px;
+    }
+
+    & + label {
+        color: $color-white;
+        position: relative;
+        cursor: pointer;
+        text-align: start;
+        font-weight: 600;
+    }
+    
+    &:checked::before {
+        content: '';
+        background-image:  url('./image/iconmonstr-check-mark-1.png');
+        background-size: 75%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+.checkbox__hint {
+    color:  $color-gray;
+    margin: 5px 0;
+}

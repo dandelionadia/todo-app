@@ -9,22 +9,8 @@ class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            tasks: [
-                {
-                    id: this.uniqueNumber(),
-                    name: 'name',
-                    hint: 'hint',
-                    isPinned: true,
-                    isDone: false
-                },
-                {
-                    id: this.uniqueNumber(),
-                    name: 'name',
-                    hint: null,
-                    isPinned: false,
-                    isDone: false
-                }
-            ]
+            inputValue: '',
+            tasks: []
         }
     }
 
@@ -33,14 +19,47 @@ class App extends React.Component {
         + (new Date()).getTime().toString(36)
     )
 
+
+    handleAddTask = (event) => {
+        event.preventDefault();
+        console.log(event.target)
+        this.setState({
+            inputValue: event.target.value
+        })
+    }
+
+    takeData = () => {
+        const { inputValue } = this.state;
+        const newTask = {
+            id: this.uniqueNumber(),
+            name: inputValue,
+            hint: '',
+            isPinned: false,
+            isDone: false
+        }
+        this.setState({
+            tasks: this.state.tasks.concat(newTask),
+            inputValue: ''
+        })
+    }
+
+    handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            this.takeData()
+        }
+    }
+
     render() {
+        const { inputValue } = this.state;
+
         return (
             <div className="wrapper">
                 <div className="container">
                     <h2>Title</h2>
-                    <Input />
+                    <Input value={inputValue} onChange={this.handleAddTask} onKeyPress={this.handleKeyPress} />
+
                     {this.state.tasks.map((task) => (
-                        <Task id={task.id} label={task.name} hint={task.hint} isPinned={task.isPinned} isDone={task.isDone} />
+                        <Task key={task.id} id={task.id} label={task.name} hint={task.hint} isPinned={task.isPinned} isDone={task.isDone} />
                     ))}
                 </div>
             </div>

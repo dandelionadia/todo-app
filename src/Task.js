@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Checkbox } from './Checkbox';
 import { MdMoreHoriz } from 'react-icons/md';
+import { GiPin } from 'react-icons/gi';
 
 function Task(props) {
     return (
         <div className="task">
-            {props.isPinned && <span>* </span>}
-            <Checkbox name="checkbox" className="task__input" label={props.label} hint={props.hint} />
+            {props.isPinned && <GiPin className="task__pin" />}
+            <Checkbox name={props.id} className="task__input" label={props.label} hint={props.hint} />
             <MdMoreHoriz fill="#ffffff4d" size="25px" />
         </div>
     )

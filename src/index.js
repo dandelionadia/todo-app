@@ -6,14 +6,61 @@ import './index.css';
 import './style.scss';
 
 class App extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            inputValue: '',
+            tasks: []
+        }
+    }
+
+    uniqueNumber = () => (
+        Math.random().toString(36).substring(2)
+        + (new Date()).getTime().toString(36)
+    )
+
+
+    handleAddTask = (event) => {
+        event.preventDefault();
+        console.log(event.target)
+        this.setState({
+            inputValue: event.target.value
+        })
+    }
+
+    takeData = () => {
+        const { inputValue } = this.state;
+        const newTask = {
+            id: this.uniqueNumber(),
+            name: inputValue,
+            hint: '',
+            isPinned: false,
+            isDone: false
+        }
+        this.setState({
+            tasks: this.state.tasks.concat(newTask),
+            inputValue: ''
+        })
+    }
+
+    handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            this.takeData()
+        }
+    }
+
     render() {
+        const { inputValue } = this.state;
+
         return (
             <div className="wrapper">
                 <div className="container">
                     <h2>Title</h2>
-                    <Input />
-                    <Task label="dodo" hint="hint" />
-                    <Task label="text" isPinned={true} />
+                    <Input value={inputValue} onChange={this.handleAddTask} onKeyPress={this.handleKeyPress} />
+
+                    {this.state.tasks.map((task) => (
+                        <Task key={task.id} id={task.id} label={task.name} hint={task.hint} isPinned={task.isPinned} isDone={task.isDone} />
+                    ))}
                 </div>
             </div>
         )

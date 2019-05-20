@@ -1,0 +1,33 @@
+.dropdown {
+    background-color: $color-light-blue;
+    color: $color-gray;
+    box-shadow: 1px 1px 5px 3px $color-light-black;
+    padding: 10px;
+    border-radius: 3px;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    white-space: nowrap;
+
+    // corner
+    &::before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        top: -6px;
+        right: 8px;
+        background-color: $color-light-blue;
+        box-shadow: -4px -4px -1px 10px $color-light-black;
+        transform: rotate(45deg);
+        position: absolute;
+    }
+
+    &__wrapper {
+        position: relative;
+    }
+
+    &__icon {
+        padding: 0 10px 0 0;
+        fill: #ccc;
+    }
+}

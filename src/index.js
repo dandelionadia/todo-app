@@ -10,7 +10,15 @@ class App extends React.Component {
         super(props)
         this.state = {
             inputValue: '',
-            tasks: []
+            tasks: [
+                {
+                    id: this.uniqueNumber(),
+                    name: 'foo',
+                    hint: '',
+                    isPinned: false,
+                    isDone: false
+                }
+            ]
         }
     }
 

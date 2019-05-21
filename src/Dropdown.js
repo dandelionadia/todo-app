@@ -5,8 +5,7 @@ class Dropdown extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isOpan: false,
-            stateDropdown: false
+            isOpan: false
         }
     }
 

@@ -14,7 +14,7 @@ function Task(props) {
             <Checkbox name={props.id} className="task__input" label={props.label} hint={props.hint} />
             <Dropdown trigger={({ onClick }) => {
                 return (
-                    <MdMoreHoriz onClick={onClick} fill="#ffffff4d" size="25px" />
+                    <MdMoreHoriz onClick={onClick} fill="#ffffff4d" size="25" />
                 )
             }}
                 items={[

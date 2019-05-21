@@ -12,9 +12,9 @@ function Task(props) {
         <div className="task">
             {props.isPinned && <GiPin className="task__pin" />}
             <Checkbox name={props.id} className="task__input" label={props.label} hint={props.hint} />
-            <Dropdown trigger={() => {
+            <Dropdown trigger={({ onClick }) => {
                 return (
-                    <MdMoreHoriz fill="#ffffff4d" size="25px" />
+                    <MdMoreHoriz onClick={onClick} fill="#ffffff4d" size="25px" />
                 )
             }}
                 items={[

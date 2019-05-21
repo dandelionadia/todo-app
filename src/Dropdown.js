@@ -5,23 +5,23 @@ class Dropdown extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            isOpan: false
+            isOpen: false
         }
     }
 
     handleTriggerClick = () => {
-        const isOpan = this.state.isOpan
+        const isOpen = this.state.isOpen
         this.setState({
-            isOpan: !isOpan
+            isOpen: !isOpen
         })
     }
 
     render() {
-        const { isOpan } = this.state
+        const { isOpen } = this.state
         return (
             <div className="dropdown__wrapper" >
                 {this.props.trigger({ onClick: this.handleTriggerClick })}
-                {isOpan &&
+                {isOpen &&
                     < div className="dropdown" >
                         {
                             this.props.items.map((item) => (

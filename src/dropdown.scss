@@ -27,7 +27,10 @@
     }
 
     &__icon {
-        padding: 0 10px 0 0;
-        fill: #ccc;
+        padding: 0 10px 0 0; 
     }
+}
+
+.box-menu:hover {
+    color: #ccc;
 }

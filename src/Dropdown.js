@@ -25,7 +25,7 @@ class Dropdown extends React.Component {
                     < div className="dropdown" >
                         {
                             this.props.items.map((item) => (
-                                <div>
+                                <div className="box-menu" onClick={item.onClick}>
                                     <item.icon className="dropdown__icon" />
                                     <span>{item.text}</span>
                                 </div>

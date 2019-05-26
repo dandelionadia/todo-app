@@ -67,6 +67,23 @@ class App extends React.Component {
         }
     }
 
+    handlePinTask = (pinTask) => {
+        const { tasks } = this.state
+
+        return () => {
+            const netTasks = tasks.map((task) => {
+                if (task.id === pinTask.id) {
+                    task.isPinned = !task.isPinned
+                }
+                return task
+            })
+            this.setState({
+                tasks: netTasks
+            })
+
+        }
+    }
+
     render() {
         const { inputValue } = this.state;
 
@@ -85,6 +102,7 @@ class App extends React.Component {
                             isPinned={task.isPinned}
                             isDone={task.isDone}
                             onDelete={this.handleDeleteTask(task)}
+                            onPin={this.handlePinTask(task)}
                         />
                     ))}
                 </div>

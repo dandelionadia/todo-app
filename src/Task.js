@@ -20,7 +20,8 @@ function Task(props) {
                 items={[
                     {
                         icon: GiPin,
-                        text: 'Pin task'
+                        text: 'Pin task',
+                        onClick: props.onPin
                     },
                     {
                         icon: IoMdTrash,

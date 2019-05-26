@@ -24,8 +24,8 @@ class Dropdown extends React.Component {
                 {isOpen &&
                     < div className="dropdown" >
                         {
-                            this.props.items.map((item) => (
-                                <div className="box-menu" onClick={item.onClick}>
+                            this.props.items.map((item, index) => (
+                                <div key={index} className="box-menu" onClick={item.onClick}>
                                     <item.icon className="dropdown__icon" />
                                     <span>{item.text}</span>
                                 </div>

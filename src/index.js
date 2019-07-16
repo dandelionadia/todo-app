@@ -48,6 +48,41 @@ class App extends React.Component {
             this.takeData()
         }
     }
+    // take one taked task
+    handleDeleteTask = (deletedTask) => {
+        // take a state
+        const { tasks } = this.state
+
+        return () => {
+            // filtered tasks
+            const nextTasks = tasks.filter((task) => {
+                // returned all tasks wich do not the same haw id taked task
+                return task.id !== deletedTask.id
+            })
+
+            // update state all task
+            this.setState({
+                tasks: nextTasks
+            })
+        }
+    }
+
+    handlePinTask = (pinTask) => {
+        const { tasks } = this.state
+
+        return () => {
+            const netTasks = tasks.map((task) => {
+                if (task.id === pinTask.id) {
+                    task.isPinned = !task.isPinned
+                }
+                return task
+            })
+            this.setState({
+                tasks: netTasks
+            })
+
+        }
+    }
 
     render() {
         const { inputValue } = this.state;
@@ -59,7 +94,16 @@ class App extends React.Component {
                     <Input value={inputValue} onChange={this.handleAddTask} onKeyPress={this.handleKeyPress} />
 
                     {this.state.tasks.map((task) => (
-                        <Task key={task.id} id={task.id} label={task.name} hint={task.hint} isPinned={task.isPinned} isDone={task.isDone} />
+                        <Task
+                            key={task.id}
+                            id={task.id}
+                            label={task.name}
+                            hint={task.hint}
+                            isPinned={task.isPinned}
+                            isDone={task.isDone}
+                            onDelete={this.handleDeleteTask(task)}
+                            onPin={this.handlePinTask(task)}
+                        />
                     ))}
                 </div>
             </div>
